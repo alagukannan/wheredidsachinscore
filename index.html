@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<meta property="og:url"             content="http://www.wheredidsachinscore.com" /> 
+    <meta property="og:title"           content="Where Did Sachin Tendulkar score through out his cricketing career in ODI and Test matches?" /> 
+	<meta property="og:image" content="/images/wheredidsachinscore.png"/>
+	<title>Where Did Sachin Tendulkar score through out his cricketing career in ODI and Test matches?</title>
+	<link rel="stylesheet" href="/styles/home.css" />
+	<link rel="stylesheet" href="/styles/colorbox.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnMaVIgdkEE4_M6YgXEz_HO2dWP0It-uw&sensor=false&v=3.&libraries=visualization,adsense">
+    </script>
+	<script "text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclustererplus/src/markerclusterer.js"></script>
+	<script  "text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.5.0-dev/mustache.min.js"></script>
+	<script  "text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.4.3/jquery.colorbox-min.js"></script>
+	<script "text/javascript" src="/scripts/map.min.js"></script>
+
+	
+	<script type="text/javascript">
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-45497666-1', 'wheredidsachinscore.com');
+	  ga('send', 'pageview');
+	</script>
+	<script type="text/javascript">var switchTo5x=false;</script>
+	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+	<script type="text/javascript">stLight.options({publisher: "0dfd90f8-7503-4166-9869-a238dcb7d616", doNotHash: false, doNotCopy: false, hashAddressBar: true});</script>
+  </head>
+  <body>
+    <div id="header"></div>
+    <div id="map-canvas"></div>
+    <div id="panel">
+	  <form>
+	  <fieldset>
+		<legend>* Click on Bouncing Ball to see all matches played at the ground.</legend>
+		<input type="radio" id="odi-matches" name="matchtype" value="ODI" checked="checked"/>
+		<label for="odi-matches"><img src="/images/white_ball_icon.png" alt="ODI Matches" align="bottom"/>ODI</label>
+		<input type="radio" id="testmatches" name="matchtype" value="Test"/>
+		<label for="test-matches"><img src="/images/red_ball_icon.png" alt="ODI Matches" align="bottom"/>Test</label>
+	  </fieldset>
+	  </form>
+    </div>
+	
+	
+	<script id="ODI_Template" type="text/template">
+		<h3>
+		 Vs {{Opposition}} at <a href="{{GroundURL}}" target="_blank">{{FullGroundName}}, {{Country}}</a> on {{StartDate}}
+		</h3>
+		<div class="datagrid">
+		<table>
+		<thead>
+			<tr>
+				<th>Runs</th>
+				<th>4's</th>
+				<th>6's</th>
+				<th>Strike Rate</th>
+				<th>Balls Faced</th>
+				<th>Minutes</th>
+				<th>Dismissal</th>
+				<th>Innings</th>
+				<th>Position</th>
+			</tr>
+		</thead>
+		<tfoot>
+		<tr>
+		<td colspan="9">
+			<div id="paging">
+			<ul><li><a href="{{MatchURL}}" target="_blank">Complete ODI Match Details</a></li></ul>
+			</div>
+		</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td>{{DisplayRuns}}</td>
+				<td>{{4s}}</td>
+				<td>{{6s}}</td>
+				<td>{{SR}}</td>
+				<td>{{BF}}</td>
+				<td>{{Mins}}</td>
+				<td>{{Dismissal}}</td>
+				<td>{{Inns}}</td>
+				<td>{{Pos}}</td>			
+			</tr>
+		</tbody>
+		</table>
+	</script>
+	
+	<script id="Test_Template" type="text/template">
+		<h3>
+		 Vs {{Opposition}} at <a href="{{GroundURL}}" target="_blank">{{FullGroundName}}, {{Country}}</a> on {{StartDate}}
+		</h3>
+		<div class="datagrid">
+		<table>
+		<thead>
+			<tr>
+				<th>1st Innings</th>
+				<th>2nd Innings</th>
+				<th>Wickets</th>
+				<th>Conceded</th>
+				<th>Catches</th>
+			</tr>
+		</thead>
+		<tfoot>
+		<tr>
+		<td colspan="5">
+			<div id="paging">
+			<ul><li><a href="{{TestURL}}" target="_blank">Complete Test Match Details</a></li></ul>
+			</div>
+		</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td>{{DisplayBat1}}</td>
+				<td>{{DisplayBat2}}</td>
+				<td>{{Wkts}}</td>
+				<td>{{Conc}}</td>
+				<td>{{Ct}}</td>		
+			</tr>
+		</tbody>
+		</table>
+	</script>	
+
+	
+	<footer>
+		<!-- ShareThis -->
+		<span class='st_sharethis_large' displayText='ShareThis'></span>
+		<span class='st_facebook_large' displayText='Facebook'></span>
+		<span class='st_twitter_large' displayText='Tweet'></span>
+		<span class='st_linkedin_large' displayText='LinkedIn'></span>
+		<span class='st_pinterest_large' displayText='Pinterest'></span>
+		<span class='st_email_large' displayText='Email'></span>
+	  <p><a href="http://blogs.alagukannan.com/contact-me/">Contact Us</a> &copy; 2013</p>
+	</footer> 
+  </body>
+</html>
