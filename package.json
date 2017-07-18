@@ -1,0 +1,24 @@
+{
+  "name": "wheredidsachinscore",
+  "version": "1.0.0",
+  "description": "where did sachin score",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mac-start-dev" : "sudo http-server ./ -p 80",
+    "start-dev" : "http-server ./ -p 80"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alagukannan/wheredidsachinscore.git"
+  },
+  "author": "alakan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alagukannan/wheredidsachinscore/issues"
+  },
+  "homepage": "https://github.com/alagukannan/wheredidsachinscore#readme",
+  "dependencies": {
+    "http-server": "^0.10.0"
+  }
+}
